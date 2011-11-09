@@ -1,9 +1,9 @@
 module.exports = function(bot) {
 
-	adminModule = new bot.Module();
+	var module = new bot.Module();
 
-	adminModule.load = function() {
-		bot.registerCommand(this.name, 'load module :name', function(request, name) {
+	module.load = function() {
+		bot.registerCommand(module.name, 'load module :name', function(request, name) {
 			bot._loadModule(name, function(error) {
 				if (error) {
 					request.reply = error;
@@ -16,7 +16,7 @@ module.exports = function(bot) {
 			});
 		});
 
-		bot.registerCommand(this.name, 'unload module :name', function(request, name) {
+		bot.registerCommand(module.name, 'unload module :name', function(request, name) {
 			bot._unloadModule(name, function(error) {
 				if (error) {
 					request.reply = error;
@@ -29,11 +29,11 @@ module.exports = function(bot) {
 			});
 		});
 
-		bot.registerCommand(this.name, 'dump', function(request) {
+		bot.registerCommand(module.name, 'dump', function(request) {
 			request.reply = bot;
 			bot.respond(request);
 		});
 	};
 
-	return adminModule;
+	return module;
 };
