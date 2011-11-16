@@ -3,7 +3,7 @@ module.exports = function(bot) {
 	var module = new bot.Module();
 
 	module.load = function() {
-		bot.registerCommand(module.name, 'load module :name', function(request, name) {
+		module.addCommand('load module :name', function(request, name) {
 			bot._loadModule(name, function(error) {
 				if (error) {
 					request.reply = error;
@@ -16,7 +16,7 @@ module.exports = function(bot) {
 			});
 		});
 
-		bot.registerCommand(module.name, 'unload module :name', function(request, name) {
+		module.addCommand('unload module :name', function(request, name) {
 			bot._unloadModule(name, function(error) {
 				if (error) {
 					request.reply = error;
@@ -29,7 +29,7 @@ module.exports = function(bot) {
 			});
 		});
 
-		bot.registerCommand(module.name, 'dump', function(request) {
+		module.addCommand('dump', function(request) {
 			request.reply = bot;
 			bot.respond(request);
 		});
