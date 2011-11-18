@@ -1,6 +1,4 @@
-module.exports = function(bot) {
-
-	var module = new bot.Module();
+module.exports = function(bot, module) {
 
 	module.load = function() {
 		module.addCommand('load module :name', function(request, name) {
@@ -35,5 +33,4 @@ module.exports = function(bot) {
 		});
 	};
 
-	return module;
 };
