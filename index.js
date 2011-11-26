@@ -27,8 +27,9 @@ module.exports = function(bot, module) {
 	});
 
 	module.addCommand('dump', function(request) {
-		request.reply = bot;
-		bot.respond(request);
+		if (request.channel === 'shell:shell') {
+			console.log(bot);
+		}
 	});
 
 };
