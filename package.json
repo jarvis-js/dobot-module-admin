@@ -12,6 +12,8 @@
   "engines": {
     "node": ">=0.4.x"
   },
-  "dependencies": {},
+  "dependencies": {
+    "npm": ">=1.0.0"
+  },
   "devDependencies": {}
 }
