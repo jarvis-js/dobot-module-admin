@@ -22,11 +22,11 @@ module.exports = function(bot, module) {
 		bot._loadModule(name, function(error) {
 			if (error) {
 				request.reply = error;
-				bot.respond(request);
+				bot.reply(request);
 			}
 			else {
 				request.reply = 'Loaded module: ' + name;
-				bot.respond(request);
+				bot.reply(request);
 			}
 		});
 	});
@@ -35,11 +35,11 @@ module.exports = function(bot, module) {
 		bot._unloadModule(name, function(error) {
 			if (error) {
 				request.reply = error;
-				bot.respond(request);
+				bot.reply(request);
 			}
 			else {
 				request.reply = 'Unloaded module: ' + name;
-				bot.respond(request);
+				bot.reply(request);
 			}
 		});
 	});
